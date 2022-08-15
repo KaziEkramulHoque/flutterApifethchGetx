@@ -14,14 +14,16 @@ class AppPages {
 
   static final routes = [
     GetPage(
-      name: _Paths.HOME,
-      page: () => HomeView(),
-      binding: HomeBinding(),
-    ),
+        name: _Paths.HOME,
+        page: () => HomeView(),
+        binding: HomeBinding(),
+        transition: Transition.fade,
+        transitionDuration: const Duration(seconds: 1)),
     GetPage(
-      name: _Paths.POST_PAGE,
-      page: () => PostPageView(),
-      binding: PostPageBinding(),
-    ),
+        name: _Paths.POST_PAGE,
+        page: () => PostPageView(),
+        binding: PostPageBinding(),
+        transition: Transition.fade,
+        transitionDuration: const Duration(seconds: 1)),
   ];
 }
