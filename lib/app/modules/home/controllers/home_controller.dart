@@ -12,14 +12,13 @@ class HomeController extends GetxController {
   late HttpService http;
   var listener;
 
-  //late List<User> userListJson;
   List<User> userList = <User>[].obs;
-//  var isLoading = true.obs;
+
   @override
   void onInit() {
     http = HttpService();
     getInternet();
-    //getListUser();
+    getListUser();
     super.onInit();
   }
 
@@ -35,26 +34,23 @@ class HomeController extends GetxController {
       isLoading.value = false;
 
       response.when(
-        (exception) => isLoading.value = false, // TODO: Handle exception
-        (response) =>
-            activeResponse = response, // TODO: Do something with location
+        (exception) => isLoading.value = false,
+        (response) => activeResponse = response,
       );
 
       if (activeResponse.statusCode == 200) {
         isLoading.value = false;
         userList = User.userlistFromJson(activeResponse.data);
-
         update();
-        //return userList;
       } else {
         isError.value = true;
         isLoading.value = false;
-        Get.snackbar("Error", "Not Valid Response");
+        Get.snackbar("Response Error", "Invalid Response from Server");
       }
     } on Exception catch (e) {
       isError.value = true;
       isLoading.value = false;
-      Get.snackbar("Error", "Caught Exception");
+      Get.snackbar("Error Loading", "Please Connect to Internet");
       print(e);
     }
   }

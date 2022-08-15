@@ -19,7 +19,7 @@ class HomeView extends GetView<HomeController> {
               color: Color.fromARGB(255, 100, 98, 98),
             ),
           ),
-          backgroundColor: Color.fromARGB(255, 231, 33, 120),
+          backgroundColor: Color.fromARGB(255, 201, 17, 97),
           iconTheme: IconThemeData(
             color: Color.fromARGB(255, 100, 98, 98),
           ),
@@ -57,7 +57,7 @@ class HomeView extends GetView<HomeController> {
                       child: ListView.builder(
                         itemBuilder: (context, index) => GestureDetector(
                           onTap: () {
-                            Get.toNamed(Routes.HOME,
+                            Get.toNamed(Routes.POST_PAGE,
                                 arguments: _controller.userList[index]);
                           },
                           child: Card(
@@ -72,7 +72,7 @@ class HomeView extends GetView<HomeController> {
                                 style: GoogleFonts.didactGothic(
                                     // fontFamily: "Rbotoo",
                                     fontSize: 20,
-                                    color: Color.fromARGB(255, 231, 33, 120)),
+                                    color: Color.fromARGB(255, 235, 29, 118)),
                               ),
                               leading: CircleAvatar(
                                 backgroundImage: NetworkImage(
