@@ -56,6 +56,7 @@ class PostPageController extends GetxController {
     } on Exception catch (e) {
       isError.value = true;
       isLoading.value = false;
+      isInternet.value = false;
       Get.snackbar("Error Loading", "Please Connect to Internet");
       print(e);
     }
